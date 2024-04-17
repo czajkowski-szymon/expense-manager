@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: expense_manager
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./init.sql:/data/application/init.sql
+    ports:
+      - "3306:3306"
+
